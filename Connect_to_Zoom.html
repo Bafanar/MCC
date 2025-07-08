@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zoom Meeting Instructions</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .instructions { display: none; margin-top: 20px; }
+    </style>
+    <script>
+        function showInstructions() {
+            var selection = document.getElementById("device").value;
+            document.getElementById("mobile").style.display = "none";
+            document.getElementById("laptop").style.display = "none";
+            if (selection === "mobile") {
+                document.getElementById("mobile").style.display = "block";
+            } else if (selection === "laptop") {
+                document.getElementById("laptop").style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Join a Zoom Meeting</h2>
+    <label for="device">Select your device:</label>
+    <select id="device" onchange="showInstructions()">
+        <option value="">--Choose an option--</option>
+        <option value="mobile"><b>Mobile Phone</b></option>
+        <option value="laptop"><b>Laptop/Desktop</b></option>
+    </select>
+
+    <div id="mobile" class="instructions">
+        <h3>Instructions for Mobile Phone:</h3>
+        <ol>
+            <li>Download the Zoom app from the <a href="https://apps.apple.com/us/app/zoom-workplace/id546505307" target="_blank">App Store</a> (iOS) or  <a href="https://play.google.com/store/apps/details?id=us.zoom.videomeetings" target="_blank">Google Play Store</a> (Android).</li>
+            <li>Open the Zoom app.</li>
+            <li>Tap "<b>Join a Meeting</b>".</li>
+            <li>Enter the Meeting ID and your name.</li>
+            <li>Tap "<b>Join</b>" and enter the meeting passcode if prompted.</li>
+        </ol>
+    </div>
+
+    <div id="laptop" class="instructions">
+        <h3>Instructions for Laptop/Desktop:</h3>
+        <ol>
+            <li>Open your web browser and go to <a href="https://zoom.us/join" target="_blank">https://zoom.us/join</a>.</li>
+            <li>Enter the Meeting ID and click "<b>Join</b>".</li>
+            <li>If prompted, download and install the Zoom application.</li>
+            <li>Once installed, the meeting will launch automatically.</li>
+            <li>Enter the meeting passcode if required.</li>
+        </ol>
+    </div>
+</body>
+</html>
