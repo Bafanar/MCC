@@ -3,37 +3,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Zoom Meeting Instructions</title>
+    <title>Zoom Translation Language Instructions</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .instructions { display: none; margin-top: 20px; }
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { color: #2c3e50; }
+        .instructions { margin-top: 20px; }
+        .hidden { display: none; }
     </style>
     <script>
-        function showInstructions() {
-            var selection = document.getElementById("device").value;
-            document.getElementById("mobile").style.display = "none";
-            document.getElementById("laptop").style.display = "none";
-            if (selection === "mobile") {
-                document.getElementById("mobile").style.display = "block";
-            } else if (selection === "laptop") {
-                document.getElementById("laptop").style.display = "block";
+        function showInstructions(device) {
+            document.getElementById('mobileInstructions').style.display = 'none';
+            document.getElementById('laptopInstructions').style.display = 'none';
+            if (device === 'mobile') {
+                document.getElementById('mobileInstructions').style.display = 'block';
+            } else if (device === 'laptop') {
+                document.getElementById('laptopInstructions').style.display = 'block';
             }
         }
     </script>
 </head>
 <body>
-    <h2>Join a Zoom Meeting</h2>
-    <label for="device">Select your device:</label>
-    <select id="device" onchange="showInstructions()">
-        <option value="">--Choose an option--</option>
-        <option value="mobile"><b>Mobile Phone</b></option>
-        <option value="laptop"><b>Laptop/Desktop</b></option>
-    </select>
+    <h1>Select Your Zoom Connection Method</h1>
+    <p>Please choose how you are connecting to Zoom:</p>
+    <button onclick="showInstructions('mobile')">Mobile Phone</button>
+    <button onclick="showInstructions('laptop')">Laptop</button>
 
-    <div id="mobile" class="instructions">
-        <h3>Instructions for Mobile Phone:</h3>
+    <div class="instructions hidden" id="mobileInstructions">
+        <h2>Instructions for Mobile Phone</h2>
         <ol>
-            <li>Download the Zoom app from the <a href="https://apps.apple.com/us/app/zoom-workplace/id546505307" target="_blank">App Store</a> (iOS) or  <a href="https://play.google.com/store/apps/details?id=us.zoom.videomeetings" target="_blank">Google Play Store</a> (Android).</li>
+             <li>Download the Zoom app from the <a href="https://apps.apple.com/us/app/zoom-workplace/id546505307" target="_blank">App Store</a> (iOS) or  <a href="https://play.google.com/store/apps/details?id=us.zoom.videomeetings" target="_blank">Google Play Store</a> (Android).</li>
             <li>Open the Zoom app.</li>
             <li>Tap "<b>Join a Meeting</b>".</li>
             <li>Enter the Meeting ID and your name.</li>
@@ -41,8 +39,8 @@
         </ol>
     </div>
 
-    <div id="laptop" class="instructions">
-        <h3>Instructions for Laptop/Desktop:</h3>
+    <div class="instructions hidden" id="laptopInstructions">
+        <h2>Instructions for Laptop</h2>
         <ol>
             <li>Open your web browser and go to <a href="https://zoom.us/join" target="_blank">https://zoom.us/join</a>.</li>
             <li>Enter the Meeting ID and click "<b>Join</b>".</li>
